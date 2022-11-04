@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Let's play the game &quot;BattleSudokuOnline&quot; !!!">
+  <meta property="og:title" content="BattleSudokuOnline">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://battlesudokuonline.onrender.com/card.png">
+  <meta property="og:url" content="https://battlesudokuonline.onrender.com/index.html">
+  <meta property="og:description" content="Let's play the game &quot;BattleSudokuOnline&quot; !!!">
+  <title>BattleSudokuOnline</title>
+  <link href="./css/the-new-css-reset.css" rel="stylesheet" type="text/css" />
+  <link href="./css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <div class="page-whole">
+    <div class="title">
+      <h1 id="h1Title">Battle Sudoku Online</h1>
+    </div>
+    <div class="contents" id="divContents">
+      <div class="board" id="divBoard">
+        <table id="tableBoard">
+          <tbody>
+            <tr>
+              <th></th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+            </tr>
+            <tr>
+              <th>1</th>
+              <td></td>
+              <td>I</td>
+              <td>n</td>
+              <td>i</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td>t</td>
+              <td>i</td>
+              <td></td>
+              <td>a</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>l</td>
+              <td></td>
+              <td>i</td>
+              <td>z</td>
+            </tr>
+            <tr>
+              <th>4</th>
+              <td>i</td>
+              <td>n</td>
+              <td>g</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info" id="divInfo">
+        <p>Answer pattern(s): <span id="patternNum">???</span></p>
+        <p class="select-num" id="pSelectNum"><button onclick="selectNum(1)">1</button><button
+            onclick="selectNum(2)">2</button><button onclick="selectNum(3)">3</button><button
+            onclick="selectNum(4)">4</button></p>
+        <p><span id="selectedPos">??</span> -> <span id="selectedNum">?</span></p>
+        <p><button onclick="decideNum()">OK</button><button onclick="cancelNum(false)">Cancel</button></p>
+        <p><span id="viewResult">...</span></p>
+        <p><button onclick="resetButton()">Reset</button></p>
+
+        <details class="options" id="detailsOptions">
+          <summary>Options</summary>
+          <p class="reset-attension" id="resetAttension">...</p>
+          <table id="tableOptions">
+            <tbody>
+              <tr>
+                <th><label for="viewAnswerPattern">View "Answer pattern(s)"</label></th>
+                <td><input type="checkbox" id="viewAnswerPattern" onclick="viewAnswerPattern(this.checked)" checked>
+                </td>
+              </tr>
+              <tr>
+                <th>Board Size</th>
+                <td><input type="radio" name="boardSize" value="4" id="boardSize4x4" onchange="changeOption()"
+                    checked><label for="boardSize4x4">4x4</label><br>
+                  <input type="radio" name="boardSize" value="6" id="boardSize6x6" onchange="changeOption()"><label
+                    for="boardSize6x6">6x6</label>
+                </td>
+              </tr>
+              <tr>
+                <th>Positioned Number</th>
+                <td><input type="radio" name="positionedNum" value="1" id="positionedNumOn"
+                    onchange="changeOption()"><label for="positionedNumOn">ON</label><br>
+                  <input type="radio" name="positionedNum" value="0" id="positionedNumOff" onchange="changeOption()"
+                    checked><label for="positionedNumOff">OFF</label>
+                </td>
+              </tr>
+              <tr>
+                <th>You play</th>
+                <td><input type="radio" name="playTurn" value="0" id="firstPlay" onchange="changeOption()"
+                    checked><label for="firstPlay">first</label><br>
+                  <input type="radio" name="playTurn" value="1" id="secondPlay" onchange="changeOption()"><label
+                    for="secondPlay">second</label>
+                </td>
+              </tr>
+              <tr>
+                <th>Room ID</th>
+                <td><input type="text" id="roomID" pattern="[a-z,A-Z,0-9]{4,8}" minlength="4" maxlength="8" size="8"
+                    required onchange="changeOption()"></td>
+              </tr>
+              <tr>
+                <th><label for="viewRoomID">View Room ID</label></th>
+                <td><input type="checkbox" id="viewRoomID" onclick="viewRoomID(this.checked)" checked>
+                </td>
+              </tr>
+              <tr>
+                <th>Invite URL</th>
+                <td><button onclick="copyURL()">Copy</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./js/main.js" defer></script>
+</body>
+
+</html>

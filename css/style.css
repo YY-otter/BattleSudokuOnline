@@ -1,0 +1,194 @@
+:root {
+  font-size: min(2.5vh, 5vw);
+  --title-font-size: 200%;
+  --board-th-font-size: 100%;
+  --board-th-length: 10%;
+  --board-td-font-size: 200%;
+  --board-td-line-height: normal;
+  --info-font-size: 100%;
+  --info-padding: 0.5ch 0.5em;
+  --info-button-margin: 0.25ch 0.25em;
+  --info-button-padding: 0.5ch 0.5em;
+  --info-select-num-button-size: 2em;
+  --info-attension-font-size: 80%;
+  --info-table-font-size: 80%;
+  --info-table-line-height: 1.2em;
+  --info-table-colon-margin-right: 0.5ch;
+  --info-table-checkbox-radio-width: 0.8em;
+  --info-table-input-font-size: 80%;
+}
+
+* {
+  font-family: serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #767676;
+  border-radius: 2.5px;
+}
+
+button:hover {
+  background-color: #e5e5e5;
+  border-color: #4f4f4f;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  -webkit-appearance: checkbox;
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  -webkit-appearance: radio;
+  box-sizing: border-box;
+}
+
+details > summary:first-of-type {
+  cursor: pointer;
+  list-style: inside disclosure-closed;
+}
+
+details[open] > summary:first-of-type {
+  list-style-type: disclosure-open;
+}
+
+.page-whole {
+  display: flex;
+	flex-direction: column;
+  height: 100vh;
+}
+
+.title h1 {
+  font-size: var(--title-font-size);
+  font-weight: bold;
+}
+
+.contents {
+  display: flex;
+	flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: 0;
+  flex-grow: 1;
+}
+
+.board table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.board table th {
+  font-size: var(--board-th-font-size);
+}
+
+.board table td {
+  font-size: var(--board-td-font-size);
+  line-height: var(--board-td-line-height);
+}
+
+.board table * {
+  text-align: center;
+  vertical-align: middle;
+  border-style: solid;
+  border-width: 0 thin thin 0;
+}
+
+.board table :nth-child(n+3):nth-child(-n+4):nth-last-child(n+3):nth-last-child(-n+4) {
+  border-right-width: medium;
+}
+
+.board table tr:nth-child(2n + 1) * {
+  border-bottom-width: medium;
+}
+
+.board table :first-child {
+  width: var(--board-th-length);
+  border-right-width: thick;
+}
+  
+.board table :last-child {
+  border-right-width: thick;
+}
+
+.board table tr:first-child th {
+  height: var(--board-th-length);
+  border-bottom-width: thick;
+}
+
+.board table tr:last-child * {
+  border-bottom-width: thick;
+}
+
+.info {
+  font-size: var(--info-font-size);
+  white-space: nowrap;
+  height: fit-content;
+  padding: var(--info-padding);
+}
+
+.info button {
+  margin: var(--info-button-margin);
+  padding: var(--info-button-padding);
+}
+
+.info .select-num button {
+  width: var(--info-select-num-button-size);
+  height: var(--info-select-num-button-size);
+  padding: 0;
+}
+
+.info .options .reset-attension {
+  font-size: var(--info-attension-font-size);
+}
+
+.info .options table {
+  font-size: var(--info-table-font-size);
+  line-height: var(--info-table-line-height);
+}
+
+.info .options table th {
+  text-align: right;
+  vertical-align: middle;
+}
+
+.info .options table th:after {
+  content: ":";
+  margin-right: var(--info-table-colon-margin-right);
+}
+
+.info .options table td {
+  text-align: left;
+}
+
+.info table input[type="checkbox"], .info table input[type="radio"] {
+  border: 0;
+  width: var(--info-table-checkbox-radio-width);
+  height: var(--info-table-checkbox-radio-width);
+}
+
+.info table input[type="text"] {
+  font-size: var(--info-table-input-font-size);
+  text-align: left;
+  border: solid 1px black;
+  border-radius: 3px;
+}
+
+.info table input[type="text"]:invalid {
+  border: solid 1px red;
+}
